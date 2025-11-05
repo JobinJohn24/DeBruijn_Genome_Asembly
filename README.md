@@ -11,52 +11,6 @@ This project implements the complete De Bruijn graph assembly pipeline:
 4. **Reconstruct the sequence** from the path
 5. **Calculate quality metrics** (identity, contiguity, complexity)
 
-### Implementations
-
-De Bruijn graphs power production genome assemblers used to sequence:
-- Bacterial genomes (4-6 Mb)
-- Human genomes (3 billion bp)
-- Viral sequences (10-1000 kb)
-- Real clinical samples
-
-## Quick Start
-
-### Installation
-```bash
-cd toy_genome
-R
-```
-
-In R:
-```r
-# Install required packages
-install.packages(c("igraph", "stringr", "stringdist"))
-
-# Run the complete pipeline
-source("RUN_ME_FIRST.R")
-```
-## Project Structure
-```
-toy_genome/
-├── RUN_ME_FIRST.R              # Main entry point - run this!
-├── 01_kmers.R                  # K-mer extraction
-├── 02_debruijn_graph.R         # Graph construction
-├── 03_eulerian_path.R          # Eulerian path finding (Hierholzer)
-├── 04_sequence_reconstruct.R   # Sequence assembly
-├── 05_metrics.R                # Quality metrics calculation
-├── toy_data.R                  # Sample sequences
-├── visualize_graph.R           # Graph visualization
-├── test_k_values.R             # K-value analysis (k=2-5)
-├── test_real_mtdna.R           # Real data testing (mtDNA, k=5-25)
-├── RESULTS.md                  # Detailed analysis & findings
-├── README.md                   # This file
-├── data/
-│   └── mtDNA_fragment.fasta    # Real human mtDNA (16.5k bp)
-└── example_output/
-    ├── debruijn_graph_labeled.png          # Toy data visualization
-    └── debruijn_graph_visualization.png    # mtDNA visualization
-```
-
 ## How It Works
 
 ### The Algorithm: 4 Steps
@@ -185,6 +139,44 @@ Each edge represents a k-mer:
 
 Following the cycle reconstructs: ACGTAC
 ```
+## Quick Start
+
+### Installation
+```bash
+cd toy_genome
+R
+```
+
+In R:
+```r
+# Install required packages
+install.packages(c("igraph", "stringr", "stringdist"))
+
+# Run the complete pipeline
+source("RUN_ME_FIRST.R")
+```
+## Project Structure
+```
+toy_genome/
+├── RUN_ME_FIRST.R              # Main entry point - run this!
+├── 01_kmers.R                  # K-mer extraction
+├── 02_debruijn_graph.R         # Graph construction
+├── 03_eulerian_path.R          # Eulerian path finding (Hierholzer)
+├── 04_sequence_reconstruct.R   # Sequence assembly
+├── 05_metrics.R                # Quality metrics calculation
+├── toy_data.R                  # Sample sequences
+├── visualize_graph.R           # Graph visualization
+├── test_k_values.R             # K-value analysis (k=2-5)
+├── test_real_mtdna.R           # Real data testing (mtDNA, k=5-25)
+├── RESULTS.md                  # Detailed analysis & findings
+├── README.md                   # This file
+├── data/
+│   └── mtDNA_fragment.fasta    # Real human mtDNA (16.5k bp)
+└── example_output/
+    ├── debruijn_graph_labeled.png          # Toy data visualization
+    └── debruijn_graph_visualization.png    # mtDNA visualization
+```
+
 ### Requirements
 
 - **R version:** 3.6 or later
@@ -216,25 +208,5 @@ Finds Eulerian paths in O(V + E) time:
 
 4. Result: Path visiting every edge exactly once
 ```
-## Comparison to Production Tools
-
-| Tool | Algorithm | Typical K | Use Case | Status |
-|------|-----------|-----------|----------|--------|
-| toy_genome | De Bruijn | 3-25 | Learning | ✓ Educational |
-| SPAdes | De Bruijn | 21,33,55,77 | Bacterial assembly | Production |
-| Velvet | De Bruijn | 21-31 | General-purpose | Production |
-| ABySS | De Bruijn | 40-64 | Large genomes | Production |
-
-**Our results align with production practices!**
-
-## Key Insights
-
-### Why K-Value Selection Matters
-
-| K Value | Effect | Result |
-|---------|--------|--------|
-| Too small | Many ambiguous overlaps | Multiple valid paths exist |
-| Optimal | Clear unique overlaps | Single best path |
-| Too large | Insufficient coverage | Graph fragments |
 
 
