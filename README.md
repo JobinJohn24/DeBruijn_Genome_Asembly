@@ -187,27 +187,6 @@ Each edge represents a k-mer:
 
 Following the cycle reconstructs: ACGTAC
 ```
-**Visual characteristics:**
-- 4 green nodes (circles)
-- 4 directed edges (arrows)
-- Perfect balance: every node has in-degree = out-degree
-- Crystal clear path: AC → CG → GT → TA → AC
-
-#### Fruchterman-Reingold Layout (Large Graphs)
-
-For complex graphs with many nodes, uses automatic force-directed layout:
-
-**Advantages:**
-- Minimizes edge crossings
-- Shows natural clusters
-- Scales to 1000+ nodes
-- Reveals connectivity structure
-
-**Real mtDNA (K=15):**
-- 16,554 nodes visualized
-- Automatic spacing optimization
-- Clearly shows connectivity
-
 ### Requirements
 
 - **R version:** 3.6 or later
@@ -260,14 +239,4 @@ Finds Eulerian paths in O(V + E) time:
 | Optimal | Clear unique overlaps | Single best path |
 | Too large | Insufficient coverage | Graph fragments |
 
-### Real-World K-Values
 
-Based on sequencing technology and organism:
-
-- **Illumina 100bp reads:** K=21-31 (most common)
-- **PacBio 10k bp reads:** K=15-25 (longer reads allow smaller K)
-- **Ion Torrent 200bp:** K=21-25
-- **Bacterial genomes:** K=21 (standard)
-- **Human genome:** K=31-55 (need specificity)
-
-Findings: **Use largest K that maintains connectivity.**
