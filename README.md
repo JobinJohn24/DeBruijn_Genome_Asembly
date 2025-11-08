@@ -140,7 +140,7 @@ Each edge represents a k-mer:
 
 Following the cycle reconstructs: ACGTAC
 ```
-## Quick Start
+## 👨‍💻 Quick Start
 
 ### Installation
 ```bash
@@ -156,7 +156,7 @@ install.packages(c("igraph", "stringr", "stringdist"))
 # Run the complete pipeline
 source("RUN_ME_FIRST.R")
 ```
-## Project Structure
+## 🛠️ Project Structure
 ```
 toy_genome/
 ├── RUN_ME_FIRST.R              # Main entry point - run this!
