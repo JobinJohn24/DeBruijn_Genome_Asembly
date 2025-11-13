@@ -193,21 +193,4 @@ toy_genome/
 | stringr | String manipulation | `install.packages("stringr")` |
 | stringdist | Edit distance calculations | `install.packages("stringdist")` |
 
-### Hierholzer's Algorithm
-
-Finds Eulerian paths in O(V + E) time:
-```
-1. Start at source node (out-degree > in-degree)
-   or any node if all balanced
-
-2. Use depth-first search with stack:
-   - Follow unused edges from current node
-   - Mark each edge as used
-   - When stuck, backtrack and record node
-
-3. Reverse the recorded path
-
-4. Result: Path visiting every edge exactly once
-```
-
 
