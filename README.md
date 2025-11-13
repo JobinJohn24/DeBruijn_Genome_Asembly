@@ -159,7 +159,7 @@ source("RUN_ME_FIRST.R")
 ## 🛠️ Project Structure
 ```
 toy_genome/
-├── RUN_ME_FIRST.R              # Main entry point - run this!
+├── RUN_ME_FIRST.R              # Main entry point - Running this will enable all the following files to be run
 ├── 01_kmers.R                  # K-mer extraction
 ├── 02_debruijn_graph.R         # Graph construction
 ├── 03_eulerian_path.R          # Eulerian path finding (Hierholzer)
